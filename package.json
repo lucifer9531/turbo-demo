@@ -1,0 +1,49 @@
+{
+  "name": "turbo-demo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "bootstrap": "pnpm install",
+    "build": "pnpm --filter scripts build",
+    "changeset": "changeset",
+    "clean": "pnpm turbo run clean && rimraf node_modules",
+    "dev": "pnpm --filter scripts dev",
+    "serve": "pnpm --filter @appas/admin dev",
+    "format": "pnpm run lint:eslint & pnpm run lint:stylelint & pnpm run lint:prettier",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "pnpm run stub",
+    "lint:eslint": "eslint . --cache --max-warnings 0 --fix",
+    "lint:prettier": "prettier --write  \"{packages,apps,configs,scripts}/**/*.{js,json,ts,tsx,css,less,scss,vue,html,md}\"",
+    "lint:stylelint": "stylelint --fix ",
+    "prepare": "husky install",
+    "reinstall": "pnpm turbo run clean && rimraf pnpm-lock.yaml && rimraf node_modules && pnpm run bootstrap",
+    "stub": "pnpm --filter @config/** prepack",
+    "test": "vitest",
+    "turbo:build": "turbo run build --parallel",
+    "turbo:dev": "turbo run dev --parallel",
+    "turbo:preview": "turbo run preview --parallel",
+    "version": "pnpm run changeset version"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.1",
+    "@config/lint": "workspace:*",
+    "@types/node": "^18.16.0",
+    "cross-env": "^7.0.3",
+    "esno": "^0.16.3",
+    "pathe": "^1.1.0",
+    "husky": "^8.0.3",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "tsconfig": "workspace:*",
+    "turbo": "^1.10.7",
+    "typescript": "^5.1.6",
+    "unbuild": "^1.2.1",
+    "vite": "^4.3.9",
+    "vue-tsc": "^1.6.5"
+  },
+  "packageManager": "pnpm@8.1.0",
+  "engines": {
+    "node": ">=16.15.1",
+    "pnpm": ">=8.1.0"
+  }
+}
