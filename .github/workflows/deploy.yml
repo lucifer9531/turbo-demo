@@ -105,8 +105,8 @@ jobs:
         run: |
           pnpm install --no-frozen-lockfile
           pnpm build
-          touch dist/.nojekyll
-          cp dist/index.html dist/404.html
+          touch ./apps/admin/dist/.nojekyll
+          cp ./apps/admin/dist/index.html ./apps/admin/dist/404.html
 
       - name: Delete gh-pages branch
         run: |
