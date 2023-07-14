@@ -63,9 +63,9 @@ jobs:
       - name: Sed Config Base
         shell: bash
         run: |
-          sed -i  "s#VITE_BUILD_COMPRESS\s*=.*#VITE_BUILD_COMPRESS = 'gzip'#g" ./.env.production
-          sed -i  "s#VITE_DROP_CONSOLE\s*=.*#VITE_DROP_CONSOLE = true#g" ./.env.production
-          cat ./.env.production
+          sed -i  "s#VITE_BUILD_COMPRESS\s*=.*#VITE_BUILD_COMPRESS = 'gzip'#g" ./apps/admin/.env.production
+          sed -i  "s#VITE_DROP_CONSOLE\s*=.*#VITE_DROP_CONSOLE = true#g" ./apps/admin/.env.production
+          cat ./apps/admin/.env.production
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
