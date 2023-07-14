@@ -1,10 +1,5 @@
 import { execa } from 'execa'
-import {
-  commandArgv,
-  error,
-  filterWorkspace,
-  getWorkspacePackages,
-} from './helper'
+import { commandArgv, error, filterWorkspace, getWorkspacePackages } from './helper'
 import { isArray, isString } from '@lucifer/utils'
 import { DEFAULT_SELECT_TYPE } from './constant'
 
@@ -56,9 +51,7 @@ async function baseScript(command: string, isFilterWorkspace: boolean) {
     ])
 
     const scriptArgv = isArray(packages)
-      ? packages
-          .map((argvItem) => ['--filter', argvItem])
-          .flatMap((argvItem) => argvItem)
+      ? packages.map((argvItem) => ['--filter', argvItem]).flatMap((argvItem) => argvItem)
       : ['--filter', packages || '']
     await runScript(scriptArgv, command)
   } catch (e) {

@@ -21,8 +21,7 @@ export function wrapperEnv(envConf: Record<string, any>): ViteEnv {
 
   for (const key of Object.keys(envConf)) {
     let realName = envConf[key].replace(/\\n/g, '\n')
-    realName =
-      realName === 'true' ? true : realName === 'false' ? false : realName
+    realName = realName === 'true' ? true : realName === 'false' ? false : realName
 
     if (key === 'VITE_PROXY' && realName) {
       try {
@@ -42,9 +41,7 @@ export function wrapperEnv(envConf: Record<string, any>): ViteEnv {
   return viteEnv as ViteEnv
 }
 
-export function resolveProxy(
-  proxyList: [string, string][] = [],
-): Record<string, ProxyOptions> {
+export function resolveProxy(proxyList: [string, string][] = []): Record<string, ProxyOptions> {
   const proxy: Record<string, ProxyOptions> = {}
   for (const [prefix, target] of proxyList) {
     const isHttps = /^https:\/\//.test(target)
