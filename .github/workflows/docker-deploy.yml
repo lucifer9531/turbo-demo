@@ -72,7 +72,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker Image
-        run: docker push turbo-demo:latest
+        run: |
+          docker tag turbo-demo:latest ${{ secrets.DOCKERHUB_USERNAME }}/turbo-demo:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/turbo-demo:latest
 
       - name: SSH into Deployment Server
         uses: appleboy/ssh-action@master
