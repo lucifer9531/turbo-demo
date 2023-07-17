@@ -1,0 +1,1 @@
+import{o as e,c as t,a as o}from"./vue-8fc9dc6e.js";import{_ as s}from"./index-36033877.js";const _={},c={class:"about"},a=o("h1",null,"This is an about page",-1),n=[a];function r(i,u){return e(),t("div",c,n)}const f=s(_,[["render",r]]);export{f as default};
